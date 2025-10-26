@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bn560w5oht3yf"]
+
+[ext_resource type="Shader" uid="uid://cq50qlrwf5pne" path="res://Addons/effects/force_field/materials/force_field.gdshader" id="1_cs5c8"]
+[ext_resource type="Texture2D" uid="uid://b5ra3p8nvuf46" path="res://Addons/effects/force_field/materials/hexagon_grid_sampler.png" id="2_rljlx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cs5c8")
+shader_parameter/base_color = Color(0, 0.776471, 0.333333, 1)
+shader_parameter/grid_sampler = ExtResource("2_rljlx")

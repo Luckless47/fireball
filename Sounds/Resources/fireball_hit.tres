@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://3qxe8nkfdjtx"]
+
+[ext_resource type="AudioStream" uid="uid://c08hvrspvpr0x" path="res://Sounds/Fireball/Hit/hit1.wav" id="1_w8mhq"]
+[ext_resource type="AudioStream" uid="uid://ogtjry02tckh" path="res://Sounds/Fireball/Hit/hit2.wav" id="2_55dsm"]
+[ext_resource type="AudioStream" uid="uid://bwu1ogj2mrgbx" path="res://Sounds/Fireball/Hit/hit3.wav" id="3_tg5xp"]
+[ext_resource type="AudioStream" uid="uid://cdsstoxbfe45a" path="res://Sounds/Fireball/Hit/hit4.wav" id="4_vef0y"]
+[ext_resource type="AudioStream" uid="uid://b1jk1pckcv25k" path="res://Sounds/Fireball/Hit/hit5.wav" id="5_8y2oc"]
+
+[resource]
+random_pitch = 1.1
+random_volume_offset_db = 1.0
+streams_count = 5
+stream_0/stream = ExtResource("1_w8mhq")
+stream_1/stream = ExtResource("2_55dsm")
+stream_2/stream = ExtResource("3_tg5xp")
+stream_3/stream = ExtResource("4_vef0y")
+stream_4/stream = ExtResource("5_8y2oc")
