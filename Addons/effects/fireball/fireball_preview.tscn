@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://bd7nghkrp3ghf"]
+
+[ext_resource type="Script" uid="uid://buc2osyb323ts" path="res://Addons/effects/fireball/fireball_preview.gd" id="1_ma3af"]
+[ext_resource type="PackedScene" path="res://assets/dummy/dummy_skin.tscn" id="2_0f8y6"]
+[ext_resource type="Script" uid="uid://dqlnm3d7h55gm" path="res://Addons/effects/fireball/scripts/target.gd" id="2_k3ix7"]
+[ext_resource type="Script" path="res://resources/hit/hit_box_3d.gd" id="2_tsyxn"]
+[ext_resource type="Shader" path="res://assets/ground_checkerboard.gdshader" id="5_xhsg4"]
+[ext_resource type="Texture2D" path="res://assets/checkerboard.svg" id="6_68n23"]
+[ext_resource type="PackedScene" path="res://turner/turner.tscn" id="6_edp4i"]
+
+[sub_resource type="Environment" id="Environment_qgqtj"]
+background_mode = 1
+background_color = Color(0.14902, 0.14902, 0.14902, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.368627, 0.368627, 0.368627, 1)
+tonemap_mode = 2
+glow_enabled = true
+glow_strength = 0.9
+fog_light_color = Color(0.14902, 0.14902, 0.14902, 1)
+fog_density = 0.04
+
+[sub_resource type="Shader" id="Shader_y87bm"]
+code = "shader_type spatial;
+render_mode depth_draw_opaque, cull_back, unshaded;
+
+uniform vec3 albedo : source_color;
+uniform float proximity_fade_distance;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+
+void fragment() {
+	ALBEDO = albedo;
+	float depth_tex = textureLod(depth_texture,SCREEN_UV,0.0).r;
+	vec4 world_pos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV*2.0-1.0,depth_tex,1.0);
+	world_pos.xyz/=world_pos.w;
+	ALPHA*=clamp(1.0-smoothstep(world_pos.z+proximity_fade_distance,world_pos.z,VERTEX.z),0.0,1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1lip"]
+render_priority = -128
+shader = SubResource("Shader_y87bm")
+shader_parameter/albedo = Color(0.14902, 0.14902, 0.14902, 1)
+shader_parameter/proximity_fade_distance = 8.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xd7gi"]
+flip_faces = true
+radius = 1.0
+is_hemisphere = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yakff"]
+render_priority = 0
+shader = ExtResource("5_xhsg4")
+shader_parameter/albedo_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/uv_scale = 20.0
+shader_parameter/checkerboard_sampler = ExtResource("6_68n23")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gnh8m"]
+size = Vector2(40, 40)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5hsk"]
+height = 1.4
+
+[node name="FireBallPreview" type="Node3D"]
+script = ExtResource("1_ma3af")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qgqtj")
+
+[node name="DomeFade" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_s1lip")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_xd7gi")
+metadata/_edit_lock_ = true
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_yakff")
+mesh = SubResource("PlaneMesh_gnh8m")
+metadata/_edit_lock_ = true
+
+[node name="Turner" parent="." instance=ExtResource("6_edp4i")]
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 2, 0)
+min_zoom = 6.0
+_zoom = 7.0
+
+[node name="Camera3D" parent="Turner" index="0"]
+current = true
+
+[node name="DummyAnchor" type="Node3D" parent="."]
+transform = Transform3D(1.20741, 0, -0.323524, 0, 1.25, 0, 0.323524, 0, 1.20741, 4, 0, 0)
+
+[node name="DummySkin" parent="DummyAnchor" instance=ExtResource("2_0f8y6")]
+unique_name_in_owner = true
+
+[node name="Target" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.8, 0)
+script = ExtResource("2_k3ix7")
+metadata/_edit_group_ = true
+
+[node name="HitBox" type="Area3D" parent="Target"]
+unique_name_in_owner = true
+script = ExtResource("2_tsyxn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/HitBox"]
+shape = SubResource("CapsuleShape3D_v5hsk")
+
+[node name="Output" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.906308, 0.298836, -0.298836, 0, 0.707107, 0.707107, 0.422618, -0.640856, 0.640856, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+directional_shadow_pancake_size = 10.0
+
+[node name="ShotTimeout" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(20, 1, 20)
+
+[editable path="Turner"]
