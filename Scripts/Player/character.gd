@@ -22,7 +22,7 @@ var walking: bool = false
 # Spell logic
 const SPELL_DISTANCE: float = 3.0
 const FIREHEADER_SHADER = preload("uid://bf3cbuknktrmk")
-const FIREBALL: PackedScene = preload("uid://bxljagwslm262")
+const FIREBALL = preload("uid://bxljagwslm262")
 var summoned: bool = false
 var busy
 const FIREBALL_HAND = preload("uid://cmt7lyxs0n1fy")
@@ -33,7 +33,7 @@ var shoulder_offset := 0.5
 @onready var normal_offset = 0.0
 @onready var fireball_hand = FIREBALL_HAND.instantiate()
 @onready var spell_attachment: BoneAttachment3D = $Skeleton3D/CharacterMesh/SpellAttachment
-@onready var back_attachment: ModifierBoneTarget3D = $Skeleton3D/CharacterMesh/BackAttachment
+@onready var back_attachment: ModifierBoneTarget3D = $Skeleton3D/BackAttachment
 
 var character_class = "mage"
 

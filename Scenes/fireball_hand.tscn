@@ -15,7 +15,7 @@ shader_parameter/Frensnel_Power = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_xhx2f"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_a0ivi"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_edjye"]
 
 [sub_resource type="Gradient" id="Gradient_wb2op"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -143,7 +143,7 @@ skeleton = NodePath("../..")
 [node name="Trail3D" type="MeshInstance3D" parent="VFX_Fireball"]
 transform = Transform3D(9.553427e-16, 2.1855694e-08, 0.5, 0.5, -2.1855694e-08, 0, 2.1855694e-08, 0.5, -2.1855694e-08, 0, 0, 0)
 material_override = ExtResource("3_y3fmr")
-mesh = SubResource("ImmediateMesh_a0ivi")
+mesh = SubResource("ImmediateMesh_edjye")
 skeleton = NodePath("../..")
 script = ExtResource("4_70vjv")
 fromWidth = 1.0

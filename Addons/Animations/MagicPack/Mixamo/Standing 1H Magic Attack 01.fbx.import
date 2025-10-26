@@ -3,22 +3,21 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ydbi5vuryl30"
-path="res://.godot/imported/ForceLevitationProjectiles_mixamo.fbx-510165eba35e583b12a306d845d71f70.scn"
+uid="uid://my34y2bx42hk"
+valid=false
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/ForceLevitationProjectiles_mixamo.fbx"
-dest_files=["res://.godot/imported/ForceLevitationProjectiles_mixamo.fbx-510165eba35e583b12a306d845d71f70.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/Standing 1H Magic Attack 01.fbx"
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
-nodes/apply_root_scale=true
+nodes/apply_root_scale=false
 nodes/root_scale=1.0
-nodes/import_as_skeleton_bones=false
+nodes/import_as_skeleton_bones=true
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -37,7 +36,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Cubemesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Animations/MagicPack/Mixamo/Cubemesh.res",
+"save_to_file/path": "uid://bwkjsdu5v2ttg"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

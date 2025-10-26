@@ -1,12 +1,12 @@
 [gd_scene load_steps=28 format=4 uid="uid://c0l58718uufae"]
 
-[ext_resource type="Texture2D" uid="uid://cjldjr7m8sw2o" path="res://Ch32_nonPBR_0.png" id="1_13ioh"]
+[ext_resource type="Texture2D" uid="uid://cjldjr7m8sw2o" path="res://Scenes/Characters/Ch32_nonPBR_0.png" id="1_13ioh"]
 [ext_resource type="Script" uid="uid://dnfjj37m5lp84" path="res://Scenes/Characters/enemy_character.gd" id="1_gwe5h"]
-[ext_resource type="Texture2D" uid="uid://bxe8kukmv2db" path="res://Ch32_nonPBR_3.png" id="2_gwe5h"]
-[ext_resource type="Animation" uid="uid://b0ciwek8f4xt" path="res://Animations/Locomotion/Enemy/start_walk.res" id="3_tr4mm"]
-[ext_resource type="Animation" uid="uid://xifwn3ljirkq" path="res://Animations/Locomotion/Enemy/stop_and_start_walk.res" id="4_t03nw"]
-[ext_resource type="Animation" uid="uid://c2vreiy4ypdyf" path="res://Animations/Locomotion/Enemy/stop_walk.res" id="5_43qwk"]
-[ext_resource type="Animation" uid="uid://devrdrqo72jit" path="res://Animations/Locomotion/Enemy/walk_loop.res" id="6_xwpqh"]
+[ext_resource type="Texture2D" uid="uid://bxe8kukmv2db" path="res://Scenes/Characters/Ch32_nonPBR_3.png" id="2_gwe5h"]
+[ext_resource type="Animation" uid="uid://b0ciwek8f4xt" path="res://Addons/Animations/Locomotion/Enemy/start_walk.res" id="3_tr4mm"]
+[ext_resource type="Animation" uid="uid://xifwn3ljirkq" path="res://Addons/Animations/Locomotion/Enemy/stop_and_start_walk.res" id="4_t03nw"]
+[ext_resource type="Animation" uid="uid://c2vreiy4ypdyf" path="res://Addons/Animations/Locomotion/Enemy/stop_walk.res" id="5_43qwk"]
+[ext_resource type="Animation" uid="uid://devrdrqo72jit" path="res://Addons/Animations/Locomotion/Enemy/walk_loop.res" id="6_xwpqh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xceis"]
 resource_name = "Ch32_body"

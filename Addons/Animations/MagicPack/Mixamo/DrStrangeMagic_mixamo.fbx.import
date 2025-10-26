@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0suvw0pbafy1"
-path="res://.godot/imported/DrStrangeMagic_mixamo.fbx-9ce8950063af0ef6e3b31606ada0dd67.scn"
+path="res://.godot/imported/DrStrangeMagic_mixamo.fbx-c7e2f456ebf2634eb7375e752ec4b772.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/DrStrangeMagic_mixamo.fbx"
-dest_files=["res://.godot/imported/DrStrangeMagic_mixamo.fbx-9ce8950063af0ef6e3b31606ada0dd67.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/DrStrangeMagic_mixamo.fbx"
+dest_files=["res://.godot/imported/DrStrangeMagic_mixamo.fbx-c7e2f456ebf2634eb7375e752ec4b772.scn"]
 
 [params]
 

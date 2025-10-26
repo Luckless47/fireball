@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dge6o8fesxmfq"
-path="res://.godot/imported/Y Bot.fbx-084c2341f319721b361e37cb89e67f8d.scn"
+uid="uid://yycxd6ykga8b"
+path="res://.godot/imported/MagicSnaps_mixamo.fbx-05730f97d366d04f1a55a27b89c19b44.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/Y Bot.fbx"
-dest_files=["res://.godot/imported/Y Bot.fbx-084c2341f319721b361e37cb89e67f8d.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/MagicSnaps_mixamo.fbx"
+dest_files=["res://.godot/imported/MagicSnaps_mixamo.fbx-05730f97d366d04f1a55a27b89c19b44.scn"]
 
 [params]
 

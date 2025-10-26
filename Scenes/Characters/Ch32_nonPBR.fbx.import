@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxhupilivbat2"
-path="res://.godot/imported/MagicShields_mixamo.fbx-cc7bcaca631e33bbf49a90d1659f619e.scn"
+uid="uid://clpgbvxxe6kc4"
+path="res://.godot/imported/Ch32_nonPBR.fbx-9dd1ed8c5ec61774febb3c83246eb7d7.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/MagicShields_mixamo.fbx"
-dest_files=["res://.godot/imported/MagicShields_mixamo.fbx-cc7bcaca631e33bbf49a90d1659f619e.scn"]
+source_file="res://Scenes/Characters/Ch32_nonPBR.fbx"
+dest_files=["res://.godot/imported/Ch32_nonPBR.fbx-9dd1ed8c5ec61774febb3c83246eb7d7.scn"]
 
 [params]
 

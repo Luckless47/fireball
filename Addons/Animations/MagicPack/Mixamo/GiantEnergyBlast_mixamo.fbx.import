@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b21rjfundjjau"
-path="res://.godot/imported/MagicExplosion_mixamo.fbx-8f7125b12a2b27843f093f3ae5a4b3e7.scn"
+uid="uid://b2lchmeuj5rr1"
+path="res://.godot/imported/GiantEnergyBlast_mixamo.fbx-dcad243040fb40be14e2f4fdd8fdb056.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/MagicExplosion_mixamo.fbx"
-dest_files=["res://.godot/imported/MagicExplosion_mixamo.fbx-8f7125b12a2b27843f093f3ae5a4b3e7.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/GiantEnergyBlast_mixamo.fbx"
+dest_files=["res://.godot/imported/GiantEnergyBlast_mixamo.fbx-dcad243040fb40be14e2f4fdd8fdb056.scn"]
 
 [params]
 

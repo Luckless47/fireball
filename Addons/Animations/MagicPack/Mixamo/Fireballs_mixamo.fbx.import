@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cw6y3i51mw0y4"
-path="res://.godot/imported/Fireballs_mixamo.fbx-2dac57b0958871ee3777b811ca718b32.scn"
+path="res://.godot/imported/Fireballs_mixamo.fbx-2425eb76aacd4b92cb4dc0f44f5a8eb0.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/Fireballs_mixamo.fbx"
-dest_files=["res://.godot/imported/Fireballs_mixamo.fbx-2dac57b0958871ee3777b811ca718b32.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/Fireballs_mixamo.fbx"
+dest_files=["res://.godot/imported/Fireballs_mixamo.fbx-2425eb76aacd4b92cb4dc0f44f5a8eb0.scn"]
 
 [params]
 
@@ -41,7 +41,7 @@ _subresources={
 "animations": {
 "clip": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Animations/MagicPack/Mixamo/fireball_cast.res",
+"save_to_file/fallback_path": "res://Addons/Animations/Magic/fireball.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://dscpq31bm74cr",
 "settings/loop_mode": 0,

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://yycxd6ykga8b"
-path="res://.godot/imported/MagicSnaps_mixamo.fbx-80eadf7560c10fca83b6b885da852b6d.scn"
+uid="uid://tcee1jpyloie"
+path="res://.godot/imported/WandSpells_mixamo.fbx-067894dbfd90ef79e52ed3b2f9dddaf2.scn"
 
 [deps]
 
-source_file="res://Animations/MagicPack/Mixamo/MagicSnaps_mixamo.fbx"
-dest_files=["res://.godot/imported/MagicSnaps_mixamo.fbx-80eadf7560c10fca83b6b885da852b6d.scn"]
+source_file="res://Addons/Animations/MagicPack/Mixamo/WandSpells_mixamo.fbx"
+dest_files=["res://.godot/imported/WandSpells_mixamo.fbx-067894dbfd90ef79e52ed3b2f9dddaf2.scn"]
 
 [params]
 
