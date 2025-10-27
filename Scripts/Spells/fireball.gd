@@ -41,7 +41,7 @@ func _on_body_entered(body: Node3D) -> void:
 	set_deferred("monitorable", true)
 	remove_from_group("projectiles")
 	 
-	damage_body(body.get_owner())
+	damage_body(body)
 		
 	
 	# Add hit effects here (particles, sound, damage, etc.)

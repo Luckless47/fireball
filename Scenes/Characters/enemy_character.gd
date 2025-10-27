@@ -23,10 +23,44 @@ func _ready() -> void:
 	dodge_timer = randf() * dodge_reaction_time
 
 func _physics_process(delta: float) -> void:
+	# Remove hp and queue_free() if hp is 0
 	health_check()
+	
+	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	#
+	
+	# Follow player if within distance
+	chase_player()
+	
+	
+	# Plays walking/running animations
+	animate_movement()
+	
+	# Rotates character based on direction of player
+	directional_rotation(delta)
+	
+	# Takes root motion of animations and applies it to velocity
+	apply_root_motion(delta)
+	
+	# WIP
+	#dodge(delta)
+	
+	# Default godot function for node type character movement
+	move_and_slide()
+
+
+## Helper Functions
+
+func health_check() -> void:
+	if health != _previous_health:
+		print("enemy hit for ", _previous_health - health)
+		_previous_health = health
+		if health <= 0:
+			print("enemy died")
+			queue_free()
+
+func chase_player() -> void:
 	var to_player = (player.global_position - global_position).length()
 	
 	if to_player <= 15.0:
@@ -35,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	else: 
 		direction = Vector3.ZERO
 	
-	
+func animate_movement() -> void:
 	if direction != Vector3.ZERO and !walking:
 		lower_machine.travel("start_walk")
 		walking = true
@@ -43,33 +77,18 @@ func _physics_process(delta: float) -> void:
 	elif direction == Vector3.ZERO and walking:
 		lower_machine.travel("stop_walk")
 		walking = false
-		
+
+func directional_rotation(delta: float) -> void:
 	if direction != Vector3.ZERO:
 		var target_yaw = atan2(direction.x, direction.z)
 		rotation.y = lerp_angle(rotation.y, target_yaw, delta * smooth_speed)
-	
+
+func apply_root_motion(delta: float) -> void:
 	if walking:
 		var root_motion = animation_tree.get_root_motion_position()
 		velocity = (Basis(Vector3.UP, rotation.y) * root_motion) / delta * 3.0
 	else:
 		velocity = Vector3.ZERO
-	
-	
-	dodge(delta)
-	move_and_slide()
-
-
-
-# helper functions
-
-func health_check() -> void:
-	if health != _previous_health:
-		print("enemy hit for ", _previous_health - health)
-		_previous_health = health
-		if health <= 0:
-			await get_tree().create_timer(5.0).timeout
-			print("enemy died")
-			queue_free()
 
 func dodge(delta: float) -> void:
 	dodge_timer -= delta

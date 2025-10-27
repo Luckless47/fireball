@@ -275,6 +275,7 @@ node_connections = [&"output", 0, &"LowerMachine"]
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tjphh"]
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_gwe5h")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -286,7 +287,6 @@ transform = Transform3D(1, 0, 0, 0, 0.99404496, 0.108970955, 0, -0.108970955, 0.
 [node name="Camera3D" type="Camera3D" parent="Pivot/SpringArm3D"]
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-show_rest_only = true
 bones/0/name = "mixamorig8_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9539988, 0.022714173)
@@ -762,4 +762,3 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0051326, 0)
 shape = SubResource("CapsuleShape3D_tjphh")
-disabled = true
