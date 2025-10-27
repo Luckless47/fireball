@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdv7gobnr04id"
-path.s3tc="res://.godot/imported/Untitled_image.png-a440c3c77b46d63b9de879c3b4f287e6.s3tc.ctex"
+uid="uid://cxs2hlswdy5sc"
+path="res://.godot/imported/Ch32_nonPBR_2.png-61ed82e702c529473df76612afa0cf42.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "965f25a28c3ed97480788c40375a22af"
+"md5": "50439abb910b0416fd5834779901db59"
 }
 
 [deps]
 
-source_file="res://Scenes/Untitled_image.png"
-dest_files=["res://.godot/imported/Untitled_image.png-a440c3c77b46d63b9de879c3b4f287e6.s3tc.ctex"]
+source_file="res://Scenes/Characters/Enemy/Ch32_nonPBR_2.png"
+dest_files=["res://.godot/imported/Ch32_nonPBR_2.png-61ed82e702c529473df76612afa0cf42.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -41,4 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

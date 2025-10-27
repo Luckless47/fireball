@@ -94,6 +94,7 @@ func _process(delta: float) -> void:
 			mesh.surface_set_uv(Vector2(t1, 1))
 			mesh.surface_add_vertex(to_local(points[i] - currWidth))
 		else:
+			@warning_ignore("integer_division")
 			var t0: float = i / points.size()
 			var t1: float = t
 

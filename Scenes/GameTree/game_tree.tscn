@@ -5,8 +5,8 @@
 [ext_resource type="Animation" uid="uid://davijvald37h5" path="res://Addons/Animations/Locomotion/walk_loop.res" id="4_7oa4e"]
 [ext_resource type="Animation" uid="uid://dscpq31bm74cr" path="res://Addons/Animations/Magic/fireball.res" id="5_84yhq"]
 [ext_resource type="Animation" uid="uid://ce20ragawxwt" path="res://Addons/Animations/Locomotion/stop_walk.res" id="5_apwl4"]
-[ext_resource type="Texture2D" uid="uid://cdv7gobnr04id" path="res://Scenes/Untitled_image.png" id="7_apwl4"]
-[ext_resource type="PackedScene" uid="uid://c0l58718uufae" path="res://Scenes/Characters/enemy.tscn" id="8_cp34o"]
+[ext_resource type="Texture2D" uid="uid://cdv7gobnr04id" path="res://Scenes/Map/Untitled_image.png" id="7_apwl4"]
+[ext_resource type="PackedScene" uid="uid://c0l58718uufae" path="res://Scenes/Characters/Enemy/enemy.tscn" id="8_cp34o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0tsta"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -199,7 +199,7 @@ graph_offset = Vector2(-109, -148)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_apwl4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6ofcn"]
-graph_offset = Vector2(-481.09973, 162.6063)
+graph_offset = Vector2(-453.6361, 147.46027)
 nodes/LocoMachine/node = SubResource("AnimationNodeStateMachine_28js6")
 nodes/LocoMachine/position = Vector2(-360, 60)
 nodes/CombatMachine/node = SubResource("AnimationNodeStateMachine_5siu6")
@@ -501,7 +501,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Player"]
-root_motion_track = NodePath("Skeleton3D:mixamorig_Hips")
 tree_root = SubResource("AnimationNodeBlendTree_6ofcn")
 anim_player = NodePath("../AnimationPlayer")
 parameters/CombatBlend/blend_amount = 0.0
@@ -989,14 +988,14 @@ bone = 2
 transform = Transform3D(0.07595663, 0, 0, 0, 0.28631523, 0, 0, 0, 0.034476824, 0, 0, 0)
 mesh = SubResource("BoxMesh_cp34o")
 
-[node name="Untitled" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2759485, 0)
 
-[node name="Plane" type="MeshInstance3D" parent="Untitled"]
+[node name="Plane" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("ArrayMesh_8daut")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Untitled"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("ConcavePolygonShape3D_apwl4")
 
 [node name="Camp" type="Node3D" parent="."]

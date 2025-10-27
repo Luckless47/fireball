@@ -4,31 +4,55 @@ extends CharacterBody3D
 @export var dodge_reaction_time := 0.2
 var dodge_direction := Vector3.ZERO
 var dodge_timer := 0.0
-
-
 var speed := 0.5
+var direction: Vector3 = Vector3.ZERO
+var walking: bool = false
+var smooth_speed := 10.0
 
 @onready var player: CharacterBody3D = $"../Player"
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var lower_machine = animation_tree.get("parameters/LowerMachine/playback")
+@onready var skeleton: Skeleton3D = $Skeleton3D
+
 
 var health: int = 100
 var _previous_health: int = 100
 
 func _ready() -> void:
 	# Randomize timer to stagger enemy updates
-	dodge_timer = randf() * dodge_reaction_time
+	#dodge_timer = randf() * dodge_reaction_time
+	
+	animation_tree.root_motion_track = NodePath("Skeleton3D:mixamorig8_Hips")
 
 func _physics_process(delta: float) -> void:
-	var to_player = (player.global_position - global_position).length()
-	if to_player <= 15.0:
-		var direction = (player.global_position - global_position)
-		velocity = direction * speed
+	# Remove hp and queue_free() if hp is 0
 	health_check()
-	dodge(delta)
+	
+	# Gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	# Follow player if within distance
+	chase_player()
+	
+	
+	# Plays walking/running animations
+	animate_movement()
+	
+	# Rotates character based on direction of player
+	directional_rotation(delta)
+	
+	# Takes root motion of animations and applies it to velocity
+	apply_root_motion(delta)
+	
+	# WIP
+	#dodge(delta)
+	
+	# Default godot function for node type character movement
 	move_and_slide()
 
 
-
-# helper functions
+## Helper Functions
 
 func health_check() -> void:
 	if health != _previous_health:
@@ -37,6 +61,36 @@ func health_check() -> void:
 		if health <= 0:
 			print("enemy died")
 			queue_free()
+
+func chase_player() -> void:
+	var to_player = (player.global_position - global_position).length()
+	
+	if to_player <= 15.0:
+		direction = (player.global_position - global_position).normalized()
+		
+	else: 
+		direction = Vector3.ZERO
+	
+func animate_movement() -> void:
+	if direction != Vector3.ZERO and !walking:
+		lower_machine.travel("start_walk")
+		walking = true
+		
+	elif direction == Vector3.ZERO and walking:
+		lower_machine.travel("stop_walk")
+		walking = false
+
+func directional_rotation(delta: float) -> void:
+	if direction != Vector3.ZERO:
+		var target_yaw = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_yaw, delta * smooth_speed)
+
+func apply_root_motion(delta: float) -> void:
+	if walking:
+		var root_motion = animation_tree.get_root_motion_position()
+		velocity = (Basis(Vector3.UP, rotation.y) * root_motion) / delta * 3.0
+	else:
+		velocity = Vector3.ZERO
 
 func dodge(delta: float) -> void:
 	dodge_timer -= delta

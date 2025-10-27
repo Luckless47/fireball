@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=4 uid="uid://c0l58718uufae"]
 
-[ext_resource type="Texture2D" uid="uid://cjldjr7m8sw2o" path="res://Scenes/Characters/Ch32_nonPBR_0.png" id="1_13ioh"]
-[ext_resource type="Script" uid="uid://dnfjj37m5lp84" path="res://Scenes/Characters/enemy_character.gd" id="1_gwe5h"]
-[ext_resource type="Texture2D" uid="uid://bxe8kukmv2db" path="res://Scenes/Characters/Ch32_nonPBR_3.png" id="2_gwe5h"]
+[ext_resource type="Texture2D" uid="uid://cjldjr7m8sw2o" path="res://Scenes/Characters/Enemy/Ch32_nonPBR_0.png" id="1_13ioh"]
+[ext_resource type="Script" uid="uid://dnfjj37m5lp84" path="res://Scenes/Characters/Enemy/enemy_character.gd" id="1_gwe5h"]
+[ext_resource type="Texture2D" uid="uid://bxe8kukmv2db" path="res://Scenes/Characters/Enemy/Ch32_nonPBR_3.png" id="2_gwe5h"]
 [ext_resource type="Animation" uid="uid://b0ciwek8f4xt" path="res://Addons/Animations/Locomotion/Enemy/start_walk.res" id="3_tr4mm"]
 [ext_resource type="Animation" uid="uid://xifwn3ljirkq" path="res://Addons/Animations/Locomotion/Enemy/stop_and_start_walk.res" id="4_t03nw"]
 [ext_resource type="Animation" uid="uid://c2vreiy4ypdyf" path="res://Addons/Animations/Locomotion/Enemy/stop_walk.res" id="5_43qwk"]
@@ -755,7 +755,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 reset_on_save = false
-root_motion_track = NodePath("Skeleton3D:mixamorig8_Hips")
 tree_root = SubResource("AnimationNodeBlendTree_sdde2")
 anim_player = NodePath("../AnimationPlayer")
 

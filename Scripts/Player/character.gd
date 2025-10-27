@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var character_mesh: MeshInstance3D = $Skeleton3D/CharacterMesh
 @onready var pivot = $Pivot
 @onready var spring_arm: SpringArm3D = $Pivot/SpringArm3D
+
+## Skeleton
 @onready var skeleton: Skeleton3D = $Skeleton3D
 @onready var spell_attachment: BoneAttachment3D = $Skeleton3D/CharacterMesh/SpellAttachment
 @onready var back_attachment: ModifierBoneTarget3D = $Skeleton3D/BackAttachment
@@ -53,7 +55,11 @@ var character_class = "swordsman"
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# Animation Tree
 	anim_tree.set("parameters/CombatBlend/blend_amount", 0.0)
+	anim_tree.root_motion_track = NodePath("Skeleton3D:mixamorig_Hips")
+	
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
