@@ -73,9 +73,6 @@ environment = SubResource("Environment_43ytn")
 
 [node name="Player" parent="." instance=ExtResource("1_0tsta")]
 
-[node name="Enemy" parent="." instance=ExtResource("8_cp34o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.01466)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2759485, 0)
 
@@ -122,3 +119,6 @@ skeleton = NodePath("../Chair")
 transform = Transform3D(-0.9321786, 0, 0.3619989, 0, 1, 0, -0.3619989, 0, -0.9321786, -0.97786427, -0.09189558, -7.231601)
 mesh = SubResource("BoxMesh_apwl4")
 skeleton = NodePath("../Chair")
+
+[node name="Enemy" parent="." instance=ExtResource("8_cp34o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.01466)
